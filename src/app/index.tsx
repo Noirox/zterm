@@ -27,8 +27,12 @@ css.global("html, body, div#root", {
   // text rendering
   WebkitFontSmoothing: "subpixel-antialiased",
   textRendering: "optimizeLegibility",
-  
+
   height: '100vh',
+});
+
+css.global('.pt-tabs', {
+  height: 'calc(100vh - 101px)'
 });
 
 /**
