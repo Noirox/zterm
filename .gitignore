@@ -9,3 +9,5 @@ tmp/
 dev-app-update.yml
 .vscode/
 coverage/
+
+.idea/
