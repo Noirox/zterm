@@ -1,4 +1,6 @@
 /*hello*/
-body {
-  background-color: red;
+html,
+body,
+div#root {
+  height: 100vh;
 }

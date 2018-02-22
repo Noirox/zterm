@@ -1,21 +1,20 @@
 // This is the entry point for the renderer process.
 //
 // Here we disable a few electron settings and mount the root component.
-import * as React from "react"
-import * as ReactDOM from "react-dom"
-import { RootComponent } from "./root-component"
-import { webFrame } from "electron"
-import { css } from "glamor"
-
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {RootComponent} from "./root-component";
+import {webFrame} from "electron";
+import {css} from "glamor";
 /**
  * CSS reset
  */
-import "glamor/reset"
+import "glamor/reset";
 
 /**
  * Electron-focused CSS resets
  */
-css.global("html, body", {
+css.global("html, body, div#root", {
   // turn off text highlighting
   userSelect: "none",
 
@@ -28,19 +27,21 @@ css.global("html, body", {
   // text rendering
   WebkitFontSmoothing: "subpixel-antialiased",
   textRendering: "optimizeLegibility",
-})
+  
+  height: '100vh',
+});
 
 /**
  * Zooming resets
  */
-webFrame.setVisualZoomLevelLimits(1, 1)
-webFrame.setLayoutZoomLevelLimits(0, 0)
+webFrame.setVisualZoomLevelLimits(1, 1);
+webFrame.setLayoutZoomLevelLimits(0, 0);
 
 /**
  * Drag and drop resets
  */
-document.addEventListener("dragover", event => event.preventDefault())
-document.addEventListener("drop", event => event.preventDefault())
+document.addEventListener("dragover", event => event.preventDefault());
+document.addEventListener("drop", event => event.preventDefault());
 
 // mount the root component
-ReactDOM.render(<RootComponent />, document.getElementById("root"))
+ReactDOM.render(<RootComponent />, document.getElementById("root"));
