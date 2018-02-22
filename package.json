@@ -75,6 +75,7 @@
     "electron-updater": "^2.18.2",
     "electron-window-state-manager": "^0.3.2",
     "glamor": "^2.20.40",
+    "m-react-splitters": "^1.0.4",
     "mousetrap": "^1.6.1",
     "popmotion": "^8.1.7",
     "popmotion-react": "^2.1.0",
@@ -83,6 +84,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-mosaic-component": "^1.0.3",
+    "react-splitter-layout": "^3.0.0",
     "react-transition-group": "^2.2.1"
   },
   "devDependencies": {

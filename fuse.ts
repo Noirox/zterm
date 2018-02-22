@@ -1,5 +1,5 @@
-import { FuseBox, CSSPlugin, Sparky, CopyPlugin, ReplacePlugin } from 'fuse-box'
-import { spawn } from 'child_process'
+import {CopyPlugin, CSSPlugin, FuseBox, ReplacePlugin, Sparky} from 'fuse-box'
+import {spawn} from 'child_process'
 import * as pjson from './package.json'
 
 const DEV_PORT = 4445
@@ -53,7 +53,7 @@ Sparky.task('default', ['copy-html'], () => {
   const rendererBundle = fuse
     .bundle('renderer')
     .instructions('> [app/index.tsx] +fuse-box-css')
-    .plugin(CSSPlugin())
+    .plugin([/node_module\.*(\css)$/, CSSPlugin()])
     .plugin(CopyPlugin({ useDefault: false, files: ASSETS, dest: 'assets', resolve: 'assets/' }))
 
   // and watch & hot reload unless we're bundling for production

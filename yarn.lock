@@ -271,6 +271,10 @@
   version "7.0.52"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.52.tgz#8990d3350375542b0c21a83cd0331e6a8fc86716"
 
+"@types/node@^8.0.56":
+  version "8.9.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
+
 "@types/react-dom@^16.0.3":
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.3.tgz#8accad7eabdab4cca3e1a56f5ccb57de2da0ff64"
@@ -287,6 +291,10 @@
 "@types/react@*", "@types/react@^16.0.18", "@types/react@^16.0.34":
   version "16.0.34"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.34.tgz#7a8f795afd8a404a9c4af9539b24c75d3996914e"
+
+"@types/react@^16.0.27":
+  version "16.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.38.tgz#76617433ea10274505f60bb86eddfdd0476ffdc2"
 
 "@types/storybook__react@^3.0.6":
   version "3.0.6"
@@ -5234,6 +5242,16 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+m-react-splitters@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/m-react-splitters/-/m-react-splitters-1.0.4.tgz#a93369532c84f42f8d10bddb6162e418d8d962f8"
+  dependencies:
+    "@types/node" "^8.0.56"
+    "@types/react" "^16.0.27"
+    "@types/react-dom" "^16.0.3"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
@@ -6738,6 +6756,10 @@ react-split-pane@^0.1.74:
     inline-style-prefixer "^3.0.6"
     prop-types "^15.5.10"
     react-style-proptype "^3.0.0"
+
+react-splitter-layout@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-splitter-layout/-/react-splitter-layout-3.0.0.tgz#a0cba494ffb4e0af56b3a80679e865fc4a6dc71b"
 
 react-style-proptype@^3.0.0:
   version "3.1.0"
