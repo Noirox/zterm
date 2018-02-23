@@ -43,10 +43,10 @@ export class RootComponent extends React.Component<{}, {}> {
 
   render() {
     return (
-      <div style={{padding: '5px', height: '100vh'}} >
+      <div style={{padding: '5px', height: '100vh'}}>
         <SidePane show={this.state.show} />
         <div onClick={this.toggle.bind(this)} className={`${OVERLAY}`} style={this.state.show ? OVERLAY_SHOW : null} />
-        <ViewPane />
+        <ViewPane style={this.state.show ? { transform: 'scale(0.9751)'} : null}/>
       </div>
     );
   }
