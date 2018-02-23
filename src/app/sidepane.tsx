@@ -1,11 +1,11 @@
-import * as React from 'react'
-import {css} from 'glamor'
-import {cssProps} from '../views/theme'
-import AceEditor from 'react-ace'
-import * as Mousetrap from 'mousetrap'
+import * as React from 'react';
+import {css} from 'glamor';
+import {cssProps} from '../views/theme';
+import AceEditor from 'react-ace';
+import * as Mousetrap from 'mousetrap';
 
-import 'brace/mode/java'
-import 'brace/theme/solarized_dark'
+import 'brace/mode/java';
+import 'brace/theme/solarized_dark';
 
 const SIDEBAR = css({
   backgroundColor: '#2a2a2a',
@@ -29,7 +29,7 @@ const SIDEBAR = css({
   fontWeight: '600',
   //boxShadow: 'inset 0 0 4px #797979',
   border: '1px solid #797979',
-})
+});
 
 const SIDEBAR_TITLE = css({
   textTransform: 'uppercase',
@@ -46,11 +46,11 @@ const SIDEBAR_TITLE = css({
   alignContent: 'center',
   flexDirection: 'column',
   margin: '0.85rem 0 0.85rem 0',
-})
+});
 
 const SHOW = cssProps({
   WebkitTransform: 'translateX(0px)',
-})
+});
 
 export interface ISideviewProps {
   show?: boolean,
@@ -88,19 +88,19 @@ export class SidePane extends React.Component<ISideviewProps, {}> {
     '\t\tcreateWindow()\n\n' +
     '\t}\n' +
     '})',
-  }
+  };
 
-  editor: any
-  el: any
+  editor: any;
+  el: any;
 
   constructor(props: any) {
-    super(props)
+    super(props);
   }
 
   editorDidMount(editor: any, monaco: any) {
-    console.log('editorDidMount', editor)
-    this.editor = editor
-    editor.focus()
+    console.log('editorDidMount', editor);
+    this.editor = editor;
+    editor.focus();
   }
 
   onChange(newValue: any, e: any) {
@@ -109,19 +109,19 @@ export class SidePane extends React.Component<ISideviewProps, {}> {
 
   keydown = (e: any) => {
     if (e.key.toLowerCase() === 'escape') {
-      e.preventDefault()
-      Mousetrap.trigger('f4', 'keydown')
+      e.preventDefault();
+      Mousetrap.trigger('f4', 'keydown');
     }
-  }
+  };
 
 
   render() {
     if (this.props.show) {
-      this.el = document.activeElement
-      this.editor.focus()
+      this.el = document.activeElement;
+      this.editor.focus();
     } else {
       if (this.el) {
-        this.el.focus()
+        this.el.focus();
       }
     }
     return (
@@ -132,7 +132,7 @@ export class SidePane extends React.Component<ISideviewProps, {}> {
       >
         <h2 className={`${SIDEBAR_TITLE}`}>USER.PROCLIB($$$COIBM)</h2>
         <AceEditor
-          height={'calc(100% - 42px)'}
+          height={'calc(100% - (24px + 0.85rem + 0.85rem)'}
           width={'100%'}
           mode='javascript'
           value={this.state.code}
@@ -143,7 +143,7 @@ export class SidePane extends React.Component<ISideviewProps, {}> {
           onLoad={this.editorDidMount.bind(this)}
         />
       </div>
-    )
+    );
   }
 }
 
