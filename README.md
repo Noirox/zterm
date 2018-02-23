@@ -1,3 +1,3 @@
-# zterm
+# yate
 
-A tn3270 terminal emulator
+Yet another terminal emulator 3270
