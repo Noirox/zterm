@@ -32,7 +32,6 @@ export class RootComponent extends React.Component<{}, {}> {
   };
 
   toggle() {
-    console.log('hmm');
     this.setState({show: !this.state.show});
   }
 
