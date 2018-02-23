@@ -20,7 +20,7 @@ const SIDEBAR = css({
   overflowY: 'auto',
   WebkitTransform: 'translateX(100%)',
   WebkitTransition: 'transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-  color: ' #ffffff',
+  color: '#ffffff',
   fontFamily: `'Raleway', sans-serif`,
   textDecoration: 'none',
   // textTransform: 'uppercase',
@@ -29,6 +29,23 @@ const SIDEBAR = css({
   fontWeight: '600',
   //boxShadow: 'inset 0 0 4px #797979',
   border: '1px solid #797979',
+})
+
+const SIDEBAR_TITLE = css({
+  textTransform: 'uppercase',
+  letterSpacing: '2px',
+  fontWeight: '600',
+  color: '#ffffff',
+  fontFamily: `'Raleway', sans-serif`,
+  textDecoration: 'none',
+  fontSize: '1.5rem',
+  lineHeight: '1.5rem',
+  height: '1.5rem',
+  display: 'flex',
+  justifyContent: 'center',
+  alignContent: 'center',
+  flexDirection: 'column',
+  margin: '0.85rem 0 0.85rem 0',
 })
 
 const SHOW = cssProps({
@@ -40,7 +57,7 @@ export interface ISideviewProps {
   code?: string
 }
 
-export class Sideview extends React.Component<ISideviewProps, {}> {
+export class SidePane extends React.Component<ISideviewProps, {}> {
 
   state = {
     code: 'const electron = require(\'electron\')\n' +
@@ -113,8 +130,9 @@ export class Sideview extends React.Component<ISideviewProps, {}> {
         style={this.props.show ? SHOW : null}
         onKeyDown={this.keydown}
       >
+        <h2 className={`${SIDEBAR_TITLE}`}>USER.PROCLIB($$$COIBM)</h2>
         <AceEditor
-          height={'calc(100%)'}
+          height={'calc(100% - 42px)'}
           width={'100%'}
           mode='javascript'
           value={this.state.code}
