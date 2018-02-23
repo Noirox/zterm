@@ -37,11 +37,12 @@ const icon = css({
 });
 
 const title = css({
+  fontSize: '16px',
   margin: '0 auto',
   marginTop: '5px',
-  width: '100px',
-  height: '80px',
-  paddingLeft: '15px',
+  width: '107px',
+  height: '45px',
+  paddingLeft: '12px',
   fontFamily: `'Raleway', sans-serif`,
   textTransform: 'uppercase',
   fontWeight: '600',
@@ -49,7 +50,6 @@ const title = css({
 
 export const wrapper = css({
   userSelect: 'none',
-  cursor: 'pointer'
 });
 
 export const yateIconStyles = {
