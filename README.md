@@ -1,3 +1,3 @@
-# yate
+# YATE-3270-
 
-Yet another terminal emulator 3270
+Yet Another Terminal Emulator -3270-
