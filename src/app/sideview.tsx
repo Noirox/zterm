@@ -1,6 +1,11 @@
 import * as React from 'react'
 import {css} from 'glamor'
 import {cssProps} from '../views/theme'
+import AceEditor from 'react-ace'
+import * as Mousetrap from 'mousetrap'
+
+import 'brace/mode/java'
+import 'brace/theme/solarized_dark'
 
 const SIDEBAR = css({
   backgroundColor: '#2a2a2a',
@@ -16,11 +21,11 @@ const SIDEBAR = css({
   WebkitTransform: 'translateX(100%)',
   WebkitTransition: 'transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86)',
   color: ' #ffffff',
-  fontFamily: '"Raleway", sans-serif',
+  fontFamily: `'Raleway', sans-serif`,
   textDecoration: 'none',
-  textTransform: 'uppercase',
+  // textTransform: 'uppercase',
   fontSize: '1.5rem',
-  letterSpacing: '5px',
+  // letterSpacing: '5px',
   fontWeight: '600',
   //boxShadow: 'inset 0 0 4px #797979',
   border: '1px solid #797979',
@@ -31,18 +36,96 @@ const SHOW = cssProps({
 })
 
 export interface ISideviewProps {
-  show: boolean
+  show?: boolean,
+  code?: string
 }
 
 export class Sideview extends React.Component<ISideviewProps, {}> {
 
-  constructor(props: any) {
-    super(props)
-    console.log('not called?')
+  state = {
+    code: 'const electron = require(\'electron\')\n' +
+    'const app = electron.app\n' +
+    'const BrowserWindow = electron.BrowserWindow\n' +
+    '\n' +
+    'let mainWindow;\n' +
+    '\n' +
+    'function createWindow () {\n' +
+    '\tmainWindow = new BrowserWindow({width: 800, height: 600})\n' +
+    '\tmainWindow.loadURL(`file://${__dirname}/index.html`)\n' +
+    '\tmainWindow.webContents.openDevTools()\n' +
+    '\tmainWindow.on(\'closed\', function () {\n' +
+    '\t\tmainWindow = null\n' +
+    '\t})\n' +
+    '}\n' +
+    '\n' +
+    'app.on(\'ready\', createWindow)\n' +
+    '\n' +
+    'app.on(\'window-all-closed\', function () {\n' +
+    '\tif (process.platform !== \'darwin\') {\n' +
+    '\t\tapp.quit()\n' +
+    '\t}\n' +
+    '})\n' +
+    '\n' +
+    'app.on(\'activate\', function () {\n' +
+    '\tif (mainWindow === null) {\n' +
+    '\t\tcreateWindow()\n\n' +
+    '\t}\n' +
+    '})',
   }
 
+  editor: any
+  el: any
+
+  constructor(props: any) {
+    super(props)
+  }
+
+  editorDidMount(editor: any, monaco: any) {
+    console.log('editorDidMount', editor)
+    this.editor = editor
+    editor.focus()
+  }
+
+  onChange(newValue: any, e: any) {
+    //console.log('onChange', newValue, e)
+  }
+
+  keydown = (e: any) => {
+    if (e.key.toLowerCase() === 'escape') {
+      e.preventDefault()
+      Mousetrap.trigger('f4', 'keydown')
+    }
+  }
+
+
   render() {
-    return (<div className={`${SIDEBAR}`} style={this.props.show ? SHOW : null}>component</div>)
+    if (this.props.show) {
+      this.el = document.activeElement
+      this.editor.focus()
+    } else {
+      if (this.el) {
+        this.el.focus()
+      }
+    }
+    return (
+      <div
+        className={`${SIDEBAR}`}
+        style={this.props.show ? SHOW : null}
+        onKeyDown={this.keydown}
+      >
+        <AceEditor
+          height={'calc(100%)'}
+          width={'100%'}
+          mode='javascript'
+          value={this.state.code}
+          theme='solarized_dark'
+          onChange={this.onChange.bind(this)}
+          name='UNIQUE_ID_OF_DIV'
+          editorProps={{$blockScrolling: true}}
+          onLoad={this.editorDidMount.bind(this)}
+        />
+      </div>
+    )
   }
 }
 

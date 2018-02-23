@@ -31,6 +31,7 @@ css.global('html, body, div#root', {
   textRendering: 'optimizeLegibility',
 
   height: '100vh',
+  overflowY: 'hidden',
 })
 
 css.global('.pt-tabs', {})
