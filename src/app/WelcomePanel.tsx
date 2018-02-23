@@ -1,34 +1,34 @@
-import { cssProps } from '../views/theme'
-import * as React from 'react'
-import { yateIconStyles } from './WelcomePanel.styles'
-import { css } from 'glamor'
-import { Switch } from '@blueprintjs/core'
+import {cssProps} from '../views/theme';
+import * as React from 'react';
+import {yateIconStyles} from './WelcomePanel.styles';
+import {css} from 'glamor';
+import {Switch} from '@blueprintjs/core';
 
-const { shell } = require('electron')
+const {shell} = require('electron');
 
 const subtitle = cssProps({
   textAlign: 'center',
   marginLeft: '55px',
   marginTop: 0,
   fontFamily: `'Raleway', sans-serif`,
-})
+});
 
 const link = css({
   ':hover': {
     textDecoration: 'none',
     color: 'green',
   },
-})
+});
 
 export class WelcomePanel extends React.Component {
   state = {
     showWelcome: true,
-  }
+  };
 
-  handlePublicChange = () => this.setState({ showWelcome: !this.state.showWelcome })
+  handlePublicChange = () => this.setState({showWelcome: !this.state.showWelcome});
 
   render() {
-    const { showWelcome } = this.state
+    const {showWelcome} = this.state;
     return (
       <div>
         <a
@@ -42,17 +42,17 @@ export class WelcomePanel extends React.Component {
           </div>
         </a>
         <ul className='pt-list-unstyled'>
-          <li style={{ margin: '25px 40%' }}>
+          <li style={{margin: '25px 40%'}}>
             <button type='button' className='pt-button pt-minimal  pt-icon-add pt-fill'>
               Start new session
             </button>
           </li>
-          <li style={{ margin: '25px 40%' }}>
+          <li style={{margin: '25px 40%'}}>
             <button type='button' className='pt-button pt-minimal pt-icon-git-repo pt-fill'>
               Connect with github
             </button>
           </li>
-          <li style={{ margin: '50px 0 50px 38%' }}>
+          <li style={{margin: '50px 0 50px 38%'}}>
             <Switch
               checked={showWelcome}
               label='Show welcome page when opening YATE-3270-'
@@ -61,6 +61,6 @@ export class WelcomePanel extends React.Component {
           </li>
         </ul>
       </div>
-    )
+    );
   }
 }
