@@ -271,10 +271,6 @@
   version "7.0.52"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.52.tgz#8990d3350375542b0c21a83cd0331e6a8fc86716"
 
-"@types/node@^8.0.56":
-  version "8.9.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
-
 "@types/prop-types@^15.5.2":
   version "15.5.2"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.2.tgz#3c6b8dceb2906cc87fe4358e809f9d20c8d59be1"
@@ -286,13 +282,6 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react-monaco-editor@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@types/react-monaco-editor/-/react-monaco-editor-0.10.1.tgz#7dbea0da7a9109b07de03ea59db193ea1a93752e"
-  dependencies:
-    "@types/react" "*"
-    monaco-editor "^0.10.0"
-
 "@types/react-test-renderer@^16.0.0":
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.0.0.tgz#905a12076d7315eb4a36c4f0e5e760c7b3115420"
@@ -302,10 +291,6 @@
 "@types/react@*", "@types/react@^16.0.18", "@types/react@^16.0.34":
   version "16.0.34"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.34.tgz#7a8f795afd8a404a9c4af9539b24c75d3996914e"
-
-"@types/react@^16.0.27":
-  version "16.0.38"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.38.tgz#76617433ea10274505f60bb86eddfdd0476ffdc2"
 
 "@types/storybook__react@^3.0.6":
   version "3.0.6"
@@ -5656,16 +5641,6 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-m-react-splitters@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/m-react-splitters/-/m-react-splitters-1.0.4.tgz#a93369532c84f42f8d10bddb6162e418d8d962f8"
-  dependencies:
-    "@types/node" "^8.0.56"
-    "@types/react" "^16.0.27"
-    "@types/react-dom" "^16.0.3"
-    react "^16.2.0"
-    react-dom "^16.2.0"
-
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
@@ -5937,10 +5912,6 @@ mobx-react@^4.4.2:
 mobx@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.5.1.tgz#8e682ec535cf44e04005b9e37e2df66acc975a42"
-
-monaco-editor@^0.10.0:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.10.1.tgz#8c96c4f15b6b5258bf92cbde93cad8a7e3007e14"
 
 mousetrap@^1.6.1:
   version "1.6.1"
@@ -7301,13 +7272,6 @@ react-modal@^3.1.10:
     exenv "^1.2.0"
     prop-types "^15.5.10"
     warning "^3.0.0"
-
-react-monaco-editor@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/react-monaco-editor/-/react-monaco-editor-0.13.0.tgz#efb4c45191119bdbbdcbd4de0ff1705b7af929ed"
-  dependencies:
-    monaco-editor "^0.10.0"
-    prop-types "^15.5.10"
 
 react-mosaic-component@^1.0.3:
   version "1.0.3"
