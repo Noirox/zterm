@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Terminal } from 'xterm'
-import { ReactInstance } from 'react'
+import {ReactInstance} from 'react'
+import {Terminal} from 'xterm'
 import * as fit from 'xterm/lib/addons/fit/fit'
-import * as fullscreen from 'xterm/lib/addons/fullscreen/fullscreen'
 
 interface IYate3270Refs {
   [key: string]: ReactInstance
+
   termContainer?: HTMLElement
 }
 
@@ -16,11 +16,19 @@ export class Yate3270 extends React.Component<{}, {}> {
 
   componentDidMount() {
     Terminal.applyAddon(fit)
-    Terminal.applyAddon(fullscreen)
 
     this.xterm = new Terminal()
+    this.xterm.attachCustomKeyEventHandler(this.keyboardHandler)
     this.xterm.open(this.refs.termContainer)
     this.xterm.writeln('fuck')
+    this.xterm.on('key', (key, ev) => {
+    })
+
+  }
+
+  keyboardHandler(e: KeyboardEvent) {
+    Mousetrap.trigger(e.key.toLowerCase(), e.type)
+    return true
   }
 
   componentWillUnmount() {
@@ -32,6 +40,6 @@ export class Yate3270 extends React.Component<{}, {}> {
   }
 
   render() {
-    return <div ref='termContainer' />
+    return <div ref='termContainer'/>
   }
 }

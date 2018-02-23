@@ -275,6 +275,10 @@
   version "8.9.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
 
+"@types/prop-types@^15.5.2":
+  version "15.5.2"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.2.tgz#3c6b8dceb2906cc87fe4358e809f9d20c8d59be1"
+
 "@types/react-dom@^16.0.3":
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.3.tgz#8accad7eabdab4cca3e1a56f5ccb57de2da0ff64"
@@ -4228,7 +4232,7 @@ hoist-non-react-statics@1.x.x, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
-hoist-non-react-statics@^2.1.0:
+hoist-non-react-statics@^2.1.0, hoist-non-react-statics@^2.3.1:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
 
@@ -5908,6 +5912,16 @@ mkdirp@0.5.0:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mobx-react@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.4.2.tgz#22d710974883de1763cdafce3025570a79c64336"
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+
+mobx@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.5.1.tgz#8e682ec535cf44e04005b9e37e2df66acc975a42"
 
 mousetrap@^1.6.1:
   version "1.6.1"

@@ -1,9 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const {app, BrowserWindow} = require('electron')
 const WindowStateManager = require('electron-window-state-manager')
-import { loadURL } from './load-url'
+import {loadURL} from './load-url'
 
 // default dimensions
-export const DIMENSIONS = { width: 1000, height: 800, minWidth: 900, minHeight: 500 }
+export const DIMENSIONS = {width: 1000, height: 800, minWidth: 900, minHeight: 500}
 
 /**
  * Creates the main window.
