@@ -1,7 +1,7 @@
-import { css } from 'glamor'
-import * as React from 'react'
-import { WorkspacePaneHeaderTab } from './WorkspacePaneHeaderTab'
-import { theme } from './theme'
+import {css} from 'glamor';
+import * as React from 'react';
+import {WorkspacePaneHeaderTab} from './WorkspacePaneHeaderTab';
+import {theme} from './theme';
 
 const workspacePaneHeaderStyles = css({
   listStyle: 'none',
@@ -15,7 +15,7 @@ const workspacePaneHeaderStyles = css({
   //margin: `0 ${theme.sideNavbar.width}`
   margin: 0,
   borderBottom: '1px solid black',
-})
+});
 
 const workspacePaneHeaderControlStyles = css({
   position: 'absolute',
@@ -36,7 +36,7 @@ const workspacePaneHeaderControlStyles = css({
     transition: theme.transitionTime,
     color: 'whitesmoke',
   },
-})
+});
 
 export const WorkspacePaneHeader = () => {
   return (
@@ -44,17 +44,11 @@ export const WorkspacePaneHeader = () => {
       <ul className={`${workspacePaneHeaderStyles}`}>
         <WorkspacePaneHeaderTab active={true} title='App.js' />
         <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
       </ul>
       <div className={`${workspacePaneHeaderControlStyles}`}>
         <button type='button' className='pt-button pt-minimal fas fa-ellipsis-h' />
         <button type='button' className='pt-button pt-minimal fas fa-columns' />
       </div>
     </div>
-  )
-}
+  );
+};
