@@ -16,11 +16,33 @@ const workspacePaneHeaderStyles = css({
   margin: 0,
   borderBottom: '1px solid black'
 });
+
+const workspacePaneHeaderControlStyles = css({
+  position: 'absolute',
+  right: '15px',
+  top: 0,
+  height: '50px',
+  display: 'flex',
+  WebkitBoxAlign: 'center',
+  alignItems: 'center',
+  zIndex: 2000,
+  color: '#727781',
+  '>i': {
+    marginLeft: '10px'
+  }
+});
+
 export const WorkspacePaneHeader = () => {
   return (
-    <ul className={`${workspacePaneHeaderStyles}`}>
-      <WorkspacePaneHeaderTab active={true} title='App.js' />
-      <WorkspacePaneHeaderTab active={false} title='Sux.js' />
-    </ul>
+    <div>
+      <ul className={`${workspacePaneHeaderStyles}`}>
+        <WorkspacePaneHeaderTab active={true} title='App.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+      </ul>
+      <div className={`${workspacePaneHeaderControlStyles}`}>
+        <i className='fas fa-ellipsis-h' />
+        <i className='fas fa-columns' />
+      </div>
+    </div>
   );
 };

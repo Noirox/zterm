@@ -14,7 +14,7 @@ const workspacePaneHeaderTabStyles = css({
   fontWeight: '600',
   borderRight: '1px solid black',
   borderBottom: '1px solid black',
-  color: '#7d7d7d',
+  color: '#727781',
   transition: '.333s',
   cursor: 'pointer',
   ':hover': {
