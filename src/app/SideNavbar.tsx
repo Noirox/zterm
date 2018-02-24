@@ -1,6 +1,6 @@
-import {css} from 'glamor';
-import * as React from 'react';
-import {theme} from './theme';
+import { css } from 'glamor'
+import * as React from 'react'
+import { theme } from './theme'
 
 const SideNavbarStyles = css({
   listStyle: 'none',
@@ -15,7 +15,7 @@ const SideNavbarStyles = css({
   top: 0,
   minHeight: '400px',
   backgroundColor: theme.sideNavbar.backgroundColor,
-  borderRight: theme.barSeparator,
+  borderRight: theme.spacer,
   '>li': {
     color: theme.sideNavbar.color,
     fontSize: '1.7rem',
@@ -27,15 +27,15 @@ const SideNavbarStyles = css({
     marginBottom: '25px',
     ':hover': {
       color: 'whitesmoke',
-    }
+    },
   },
   '>li.setting': {
     position: 'absolute',
     bottom: '40px',
     left: 0,
     //animation: `${spinAnim} 10.5s linear infinite`
-  }
-});
+  },
+})
 export const SideNavbar = () => {
   return (
     <ol className={`${SideNavbarStyles}`}>
@@ -46,5 +46,5 @@ export const SideNavbar = () => {
       <li className='fas fa-external-link-square-alt' />
       <li className='fas fa-cog setting' />
     </ol>
-  );
-};
+  )
+}

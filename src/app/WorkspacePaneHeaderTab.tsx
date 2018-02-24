@@ -4,7 +4,7 @@ import { theme } from './theme'
 
 const workspacePaneHeaderTabStyles = css({
   width: '150px',
-  height: '50px',
+  height: theme.workspace.header.height,
   backgroundColor: '#21252D',
   display: 'flex',
   alignItems: 'center',

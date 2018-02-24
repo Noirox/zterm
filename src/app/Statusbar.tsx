@@ -1,6 +1,6 @@
-import {css} from 'glamor';
-import * as React from 'react';
-import {theme} from './theme';
+import { css } from 'glamor'
+import * as React from 'react'
+import { theme } from './theme'
 
 const StatusbarStyles = css({
   backgroundColor: theme.statusbar.backgroundColor,
@@ -10,13 +10,9 @@ const StatusbarStyles = css({
   left: 0,
   bottom: 0,
   zIndex: theme.statusbar.zIndex,
-  borderTop: theme.barSeparator,
-});
+  borderTop: theme.spacer,
+})
 
 export const Statusbar = () => {
-  return (
-    <div className={`${StatusbarStyles}`}>
-
-    </div>
-  );
-};
+  return <div className={`${StatusbarStyles}`} />
+}

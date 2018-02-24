@@ -19,14 +19,15 @@ const workspacePaneHeaderStyles = css({
 
 const workspacePaneHeaderControlStyles = css({
   position: 'absolute',
-  right: '15px',
+  right: '5px',
   top: 0,
-  height: '50px',
+  height: theme.workspace.header.height,
   display: 'flex',
   WebkitBoxAlign: 'center',
   alignItems: 'center',
-
-  zIndex: 2000,
+  zIndex: theme.workspace.header.zIndex,
+  backgroundColor: theme.workspace.backgroundColor,
+  borderBottom: theme.spacer,
   '>.pt-button': {
     color: '#727781',
     marginLeft: 0,
@@ -42,6 +43,12 @@ export const WorkspacePaneHeader = () => {
     <div>
       <ul className={`${workspacePaneHeaderStyles}`}>
         <WorkspacePaneHeaderTab active={true} title='App.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
         <WorkspacePaneHeaderTab active={false} title='Sux.js' />
       </ul>
       <div className={`${workspacePaneHeaderControlStyles}`}>

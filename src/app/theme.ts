@@ -4,7 +4,7 @@ export const theme = {
   transitionTime: '.666s',
   backgroundColor: '#2B303B',
   bodyFontFamily: `'Raleway', sans-serif`,
-  barSeparator: '1px solid black',
+  spacer: '1px solid black',
   sideNavbar: {
     width: '50px',
     backgroundColor: '#21252D',
@@ -19,7 +19,8 @@ export const theme = {
   workspace: {
     backgroundColor: '#21252D',
     header: {
-      height: '50px',
+      height: '40px',
+      zIndex: zIndexBase + 1,
     },
   },
 }
