@@ -3,8 +3,9 @@ import {css} from 'glamor';
 import {WorkspacePaneHeader} from './WorkspacePaneHeader';
 import {WorkspacePaneBody} from './WorkspacePaneBody';
 import {theme} from './theme';
+import {ITabModel, workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
-import {ITabModel} from './WorkspaceModel';
+
 
 const workspacePaneStyles = css({
   height: `calc(100vh - ${theme.statusbar.height})`,
@@ -19,9 +20,8 @@ const workspacePaneStyles = css({
 export const WorkspacePane = observer((props: IWorkspacePaneProps) => {
   return (
     <div className={`${workspacePaneStyles}`}>
-      <WorkspacePaneHeader tabs={props.tabs} activeTab={props.activeTab}/>
-      <WorkspacePaneBody>
-      </WorkspacePaneBody>
+      <WorkspacePaneHeader tabs={props.tabs} activeTab={props.activeTab} />
+      <WorkspacePaneBody panel={workspaceState.panes[0].active.content} />
     </div>
   );
 });

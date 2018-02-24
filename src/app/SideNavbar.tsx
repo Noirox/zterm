@@ -1,7 +1,19 @@
-import {css} from 'glamor';
+import {css, keyframes} from 'glamor';
 import * as React from 'react';
 import {theme} from './theme';
-import {workspaceState} from './WorkspaceModel';
+import {SimpleBody, workspaceState} from './WorkspaceModel';
+import {observer} from 'mobx-react';
+
+const spinAnim = keyframes({
+  '0%': {
+    WebkitTransform: 'rotate(0)',
+    transform: 'rotate(0)'
+  },
+  '100%': {
+    WebkitTransform: 'rotate(359deg)',
+    transform: 'rotate(359deg)',
+  }
+});
 
 const SideNavbarStyles = css({
   listStyle: 'none',
@@ -34,10 +46,13 @@ const SideNavbarStyles = css({
     position: 'absolute',
     bottom: '40px',
     left: 0,
+    padding: '10px'
     //animation: `${spinAnim} 10.5s linear infinite`
   },
 });
-export const SideNavbar = () => {
+
+
+export const SideNavbar = observer(() => {
   return (
     <ol className={`${SideNavbarStyles}`}>
       <li className='fas fa-copy' />
@@ -45,12 +60,26 @@ export const SideNavbar = () => {
       <li className='fas fa-code-branch' />
       <li className='fas fa-bug' />
       <li className='fas fa-external-link-square-alt' />
-      <li className='fas fa-cog setting' onClick={() => {
-        const tab = {title: 'Settings', id: 'settings', content: <div>fuc</div>};
-        workspaceState.panes[0].addTab(tab);
-        workspaceState.panes[0].setActiveTab(tab);
-      }}
-      />
+      <li className='setting'
+          style={workspaceState.panes[0].active.id === 'settings' ? {
+            color: theme.textColorActive,
+            backgroundColor: theme.backgroundColor,
+            borderTop: theme.spacer,
+            borderBottom: theme.spacer,
+          } : {}}
+          onClick={() => {
+            const tab = {title: 'Settings', id: 'settings', content: <SimpleBody />};
+            workspaceState.panes[0].addTab(tab);
+            workspaceState.panes[0].setActiveTab(tab);
+          }}>
+        <i className='fas fa-cog' style={workspaceState.panes[0].active.id === 'settings' ? {
+          animation: `${spinAnim} 3.5s linear infinite`,
+          animationPlayState: 'running'
+        } : {
+          animation: `${spinAnim} 3.5s linear infinite`,
+          animationPlayState: 'paused',}
+        } />
+      </li>
     </ol>
   );
-};
+});

@@ -13,10 +13,11 @@ const workspacePaneBodyStyles = css({
   padding: '5px',
 });
 
-export const WorkspacePaneBody = (props) => {
+export const WorkspacePaneBody = (props: { panel: JSX.Element }) => {
+  const {panel} = props;
   return (
     <div className={`${workspacePaneBodyStyles}`}>
-      {props.children}
+      {panel}
     </div>
   );
 };

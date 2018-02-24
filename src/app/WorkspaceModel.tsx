@@ -36,6 +36,7 @@ export class PaneModel {
   removeTab = (tab: ITabModel) => {
     const idx = this.tabs.indexOf(tab);
     this.tabs.splice(idx, 1);
+    tab.content = null;
 
     if (tab.id.startsWith('yate-tabs')) {
       this.tabCounter--;
@@ -75,11 +76,11 @@ export class PaneModel {
   }
 
   constructor() {
-    const t = {
-      id: 'fuck',
-      title: 'fuck',
-      content: (<div>fuck</div>)
-    };
+    const t = new TabModel();
+    t.id = 'fuck';
+    t.title = 'fuck';
+    t.content = (<div>fuck0</div>)
+
     this.tabs = [
       t,
       {
@@ -92,10 +93,24 @@ export class PaneModel {
   }
 }
 
+export class SimpleBody extends React.Component {
+
+  render() {
+    return (<div>fuuuck simple</div>);
+  }
+}
+
+class TabModel implements ITabModel {
+  title: string;
+  id: string;
+  @observable
+  content: any;
+}
+
 
 export interface ITabModel {
   id: string
-  title?: string
+  title: string
   content: any
 }
 

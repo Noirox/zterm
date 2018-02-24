@@ -7,7 +7,6 @@ import {css} from 'glamor';
 import {theme} from './theme';
 import {SideNavbar} from './SideNavbar';
 import {Statusbar} from './Statusbar';
-import {WorkspacePane} from './WorkspacePane';
 import {Workspace} from './Workspace';
 import {SidePane} from './sidepane';
 
@@ -30,16 +29,6 @@ const OVERLAY_SHOW = cssProps({
   visibility: 'visible',
 });
 
-// const spinAnim = keyframes({
-//   '0%': {
-//     WebkitTransform: 'rotate(0)',
-//     transform: 'rotate(0)'
-//   },
-//   '100%': {
-//     WebkitTransform: 'rotate(359deg)',
-//     transform: 'rotate(359deg)',
-//   }
-// });
 
 const AppWrapper = css({
   height: '100%',
@@ -70,9 +59,7 @@ export class RootComponent extends React.Component<{}, {}> {
       <div className={`${AppWrapper}`}>
         <SideNavbar />
         <SidePane show={this.state.show} />
-        <Workspace>
-          <WorkspacePane />
-        </Workspace>
+        <Workspace />
         <Statusbar />
         <div onClick={this.toggle.bind(this)} className={`${OVERLAY}`} style={this.state.show ? OVERLAY_SHOW : null} />
       </div>

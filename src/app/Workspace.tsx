@@ -18,7 +18,7 @@ export const Workspace = () => {
   return (
     <div className={`${workspaceStyles}`}>
       {workspaceState.panes.map(pane =>
-        <WorkspacePane tabs={pane.tabs} key={'1'} activeTab={workspaceState.panes[0].activeTab}/>)
+        <WorkspacePane tabs={pane.tabs} key={'1'} activeTab={workspaceState.panes[0].active}/>)
       }
     </div>
   );
