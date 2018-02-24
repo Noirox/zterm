@@ -1,11 +1,15 @@
 // This is the top-most component in the app.
 import * as React from 'react';
 import './main.css';
-import {ViewPane} from './viewpane';
-import {SidePane} from './sidepane';
 import * as Mousetrap from 'mousetrap';
 import {cssProps} from '../views/theme';
-import {css} from 'glamor';
+import {css, keyframes} from 'glamor';
+import {theme} from './theme';
+import {SideNavbar} from './SideNavbar';
+import {Statusbar} from './Statusbar';
+import {WorkspacePane} from './WorkspacePane';
+import {Workspace} from './Workspace';
+import {SidePane} from './sidepane';
 
 const OVERLAY = css({
   position: 'fixed',
@@ -26,6 +30,26 @@ const OVERLAY_SHOW = cssProps({
   visibility: 'visible',
 });
 
+const spinAnim = keyframes({
+  '0%': {
+    WebkitTransform: 'rotate(0)',
+    transform: 'rotate(0)'
+  },
+  '100%': {
+    WebkitTransform: 'rotate(359deg)',
+    transform: 'rotate(359deg)',
+  }
+});
+
+const AppWrapper = css({
+  height: '100%',
+  width: '100%',
+  backgroundColor: theme.backgroundColor,
+  fontFamily: theme.bodyFontFamily,
+  overflow: 'hidden',
+  minHeight: '400px'
+});
+
 export class RootComponent extends React.Component<{}, {}> {
   state = {
     show: false,
@@ -43,10 +67,14 @@ export class RootComponent extends React.Component<{}, {}> {
 
   render() {
     return (
-      <div style={{padding: '5px', height: '100vh'}}>
-        <SidePane show={this.state.show} />
-        <div onClick={this.toggle.bind(this)} className={`${OVERLAY}`} style={this.state.show ? OVERLAY_SHOW : null} />
-        <ViewPane style={this.state.show ? { transform: 'scale(0.9751)'} : null}/>
+      <div className={`${AppWrapper}`}>
+        <SideNavbar />
+        {/*<SidePane show={this.state.show} />*/}
+        <Workspace>
+          <WorkspacePane />
+        </Workspace>
+        <Statusbar />
+        {/*<div onClick={this.toggle.bind(this)} className={`${OVERLAY}`} style={this.state.show ? OVERLAY_SHOW : null} />*/}
       </div>
     );
   }

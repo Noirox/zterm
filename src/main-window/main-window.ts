@@ -64,6 +64,7 @@ export function createMainWindow(appPath: string, showDelay: number = 100) {
     setTimeout(() => {
       window.show();
       window.focus();
+      window.webContents.openDevTools();
     }, showDelay);
   });
 
