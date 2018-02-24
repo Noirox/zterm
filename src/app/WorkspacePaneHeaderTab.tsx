@@ -5,7 +5,7 @@ import {theme} from './theme';
 const workspacePaneHeaderTabStyles = css({
   width: '150px',
   height: theme.workspace.header.height,
-  backgroundColor: '#21252D',
+  backgroundColor: theme.backgroundColorBase,
   display: 'flex',
   alignItems: 'center',
   WebkitBoxPack: 'center',
@@ -13,20 +13,20 @@ const workspacePaneHeaderTabStyles = css({
   padding: 0,
   margin: 0,
   fontWeight: '600',
-  borderRight: '1px solid black',
-  borderBottom: '1px solid black',
-  color: '#727781',
-  transition: '.333s',
+  borderRight: theme.spacer,
+  borderBottom: theme.spacer,
+  color: theme.textColor,
+  transition: theme.transitionTime,
   cursor: 'pointer',
   ':hover': {
-    color: 'whitesmoke',
+    color: `${theme.workspace.header.color}`,
     '>.pt-button': {
       transition: theme.transitionTime,
-      color: '#d4d4d4',
+      color: `${theme.workspace.header.color}`,
     },
   },
   '>.pt-button:hover': {
-    color: 'whitesmoke',
+    color: `${theme.workspace.header.color}`,
     // backgroundColor: '#0f4987'
   },
   '>span': {
@@ -38,10 +38,10 @@ const workspacePaneHeaderTabStyles = css({
 });
 
 const active = css({
-  backgroundColor: '#2B303B',
-  borderBottom: '1px solid #2B303B',
-  borderLeft: '2px solid #568af2',
-  color: 'whitesmoke',
+  backgroundColor: theme.backgroundColor,
+  borderBottom: `1px solid ${theme.backgroundColor}`,
+  borderLeft: `2px solid ${theme.workspace.header.activeTabBarColor}`,
+  color: `${theme.workspace.header.color}`,
   cursor: 'default',
 });
 

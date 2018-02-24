@@ -9,7 +9,7 @@ const workspaceStyles = css({
   overflow: 'hidden',
   marginLeft: theme.sideNavbar.width,
   backgroundColor: theme.workspace.backgroundColor,
-  color: 'whitesmoke'
+  color: theme.textColorActive,
 });
 export const Workspace = (props: any) => {
   return (

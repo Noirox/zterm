@@ -1,26 +1,39 @@
-export const zIndexBase = 999
+const textColor = '#727781';
+const textColorActive = 'whitesmoke';
+const bgColor = '#21252D';
+const bgColorActive = '#2B303B';
+
+export const zIndexBase = 999;
 
 export const theme = {
   transitionTime: '.666s',
-  backgroundColor: '#2B303B',
+  backgroundColor: bgColorActive,
+  backgroundColorBase: bgColor,
   bodyFontFamily: `'Raleway', sans-serif`,
   spacer: '1px solid black',
+  textColor: textColor,
+  textColorActive: textColorActive,
   sideNavbar: {
     width: '50px',
-    backgroundColor: '#21252D',
-    color: '#727781',
+    backgroundColor: bgColor,
+    color: textColor,
     zIndex: zIndexBase,
   },
   statusbar: {
-    backgroundColor: '#21252D',
+    backgroundColor: bgColor,
     height: '25px',
     zIndex: zIndexBase + 1,
   },
   workspace: {
-    backgroundColor: '#21252D',
+    backgroundColor: bgColor,
     header: {
       height: '40px',
       zIndex: zIndexBase + 1,
+      activeTabBarColor: 'rgba(19, 124, 189, 1)', //'#568af2',
+      color: textColorActive,
     },
   },
-}
+};
+
+// gutter #01313f
+// bg #002B36

@@ -69,12 +69,12 @@ export class RootComponent extends React.Component<{}, {}> {
     return (
       <div className={`${AppWrapper}`}>
         <SideNavbar />
-        {/*<SidePane show={this.state.show} />*/}
+        <SidePane show={this.state.show} />
         <Workspace>
           <WorkspacePane />
         </Workspace>
         <Statusbar />
-        {/*<div onClick={this.toggle.bind(this)} className={`${OVERLAY}`} style={this.state.show ? OVERLAY_SHOW : null} />*/}
+        <div onClick={this.toggle.bind(this)} className={`${OVERLAY}`} style={this.state.show ? OVERLAY_SHOW : null} />
       </div>
     );
   }

@@ -14,7 +14,7 @@ const workspacePaneHeaderStyles = css({
   top: 0,
   //margin: `0 ${theme.sideNavbar.width}`
   margin: 0,
-  borderBottom: '1px solid black',
+  borderBottom: theme.spacer,
 });
 
 const workspacePaneHeaderControlStyles = css({
@@ -26,15 +26,15 @@ const workspacePaneHeaderControlStyles = css({
   WebkitBoxAlign: 'center',
   alignItems: 'center',
   zIndex: theme.workspace.header.zIndex,
-  backgroundColor: theme.workspace.backgroundColor,
+  //backgroundColor: theme.workspace.backgroundColor,
   borderBottom: theme.spacer,
   '>.pt-button': {
-    color: '#727781',
+    color: theme.textColor,
     marginLeft: 0,
   },
   '>.pt-button:hover': {
     transition: theme.transitionTime,
-    color: 'whitesmoke',
+    color: theme.workspace.header.color,
   },
 });
 
