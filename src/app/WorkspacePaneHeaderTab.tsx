@@ -1,6 +1,6 @@
-import { css } from 'glamor'
-import * as React from 'react'
-import { theme } from './theme'
+import {css} from 'glamor';
+import * as React from 'react';
+import {theme} from './theme';
 
 const workspacePaneHeaderTabStyles = css({
   width: '150px',
@@ -35,14 +35,15 @@ const workspacePaneHeaderTabStyles = css({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-})
+});
 
 const active = css({
   backgroundColor: '#2B303B',
   borderBottom: '1px solid #2B303B',
+  borderLeft: '2px solid #568af2',
   color: 'whitesmoke',
   cursor: 'default',
-})
+});
 
 export const WorkspacePaneHeaderTab = (props: any) => {
   return (
@@ -50,5 +51,5 @@ export const WorkspacePaneHeaderTab = (props: any) => {
       <span>{props.title}</span>
       <button type='button' className='pt-button pt-minimal fas fa-times' />
     </li>
-  )
-}
+  );
+};
