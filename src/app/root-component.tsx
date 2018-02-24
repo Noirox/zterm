@@ -3,7 +3,7 @@ import * as React from 'react';
 import './main.css';
 import * as Mousetrap from 'mousetrap';
 import {cssProps} from '../views/theme';
-import {css, keyframes} from 'glamor';
+import {css} from 'glamor';
 import {theme} from './theme';
 import {SideNavbar} from './SideNavbar';
 import {Statusbar} from './Statusbar';
@@ -30,16 +30,16 @@ const OVERLAY_SHOW = cssProps({
   visibility: 'visible',
 });
 
-const spinAnim = keyframes({
-  '0%': {
-    WebkitTransform: 'rotate(0)',
-    transform: 'rotate(0)'
-  },
-  '100%': {
-    WebkitTransform: 'rotate(359deg)',
-    transform: 'rotate(359deg)',
-  }
-});
+// const spinAnim = keyframes({
+//   '0%': {
+//     WebkitTransform: 'rotate(0)',
+//     transform: 'rotate(0)'
+//   },
+//   '100%': {
+//     WebkitTransform: 'rotate(359deg)',
+//     transform: 'rotate(359deg)',
+//   }
+// });
 
 const AppWrapper = css({
   height: '100%',
