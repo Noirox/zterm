@@ -10,7 +10,7 @@ import 'brace/theme/solarized_dark';
 const SIDEBAR = css({
   backgroundColor: '#2a2a2a',
   position: 'fixed',
-  zIndex: 9,
+  zIndex: 1001,
   top: 0,
   right: 0,
   height: '100vh',

@@ -26,7 +26,7 @@ const workspacePaneHeaderControlStyles = css({
   WebkitBoxAlign: 'center',
   alignItems: 'center',
   zIndex: theme.workspace.header.zIndex,
-  //backgroundColor: theme.workspace.backgroundColor,
+  backgroundColor: theme.backgroundColorBase,
   borderBottom: theme.spacer,
   '>.pt-button': {
     color: theme.textColor,
@@ -40,7 +40,7 @@ const workspacePaneHeaderControlStyles = css({
 
 export const WorkspacePaneHeader = () => {
   return (
-    <div>
+    <div style={{backgroundColor: theme.backgroundColorBase}}>
       <ul className={`${workspacePaneHeaderStyles}`}>
         <WorkspacePaneHeaderTab active={true} title='App.js' />
         <WorkspacePaneHeaderTab active={false} title='Sux.js' />
