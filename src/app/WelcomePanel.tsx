@@ -42,17 +42,27 @@ export class WelcomePanel extends React.Component {
           </div>
         </a>
         <ul className='pt-list-unstyled'>
-          <li style={{margin: '25px 40%'}}>
+          <li style={{margin: '25px 30%'}}>
             <button type='button' className='pt-button pt-minimal  pt-icon-add pt-fill'>
               Start new session
             </button>
           </li>
-          <li style={{margin: '25px 40%'}}>
+          <li style={{margin: '25px 30%'}}>
             <button type='button' className='pt-button pt-minimal pt-icon-git-repo pt-fill'>
               Connect with github
             </button>
           </li>
-          <li style={{margin: '50px 0 50px 38%'}}>
+          <li style={{margin: '25px 30%'}}>
+            <ul className='pt-list-unstyled'>
+              <li>
+                <span>Report issues to </span>
+                <a onClick={() => shell.openExternal('https://github.com/Noirox/zterm/issues')}>
+                  here
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li style={{margin: '50px 0 50px 30%'}}>
             <Switch
               checked={showWelcome}
               label='Show welcome page when opening YATE-3270-'

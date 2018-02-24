@@ -5,7 +5,7 @@ const WindowStateManager = require('electron-window-state-manager');
 import {loadURL} from './load-url';
 
 // default dimensions
-export const DIMENSIONS = {width: 1000, height: 800, minWidth: 900, minHeight: 500};
+export const DIMENSIONS = {width: 900, height: 800, minWidth: 600, minHeight: 800};
 
 /**
  * Creates the main window.
@@ -24,14 +24,16 @@ export function createMainWindow(appPath: string, showDelay: number = 100) {
   // create our main window
   const window = new BrowserWindow({
     minWidth: DIMENSIONS.minWidth,
+    //width: DIMENSIONS.width,
     minHeight: DIMENSIONS.minHeight,
+    //height: DIMENSIONS.height,
     width: windowState.width,
     height: windowState.height,
     x: windowState.x,
     y: windowState.y,
     show: false,
     useContentSize: true,
-    titleBarStyle: 'hidden-inset',
+  //  titleBarStyle: 'hidden-inset',
     autoHideMenuBar: true,
     //backgroundColor: '#fff',
     vibrancy: 'light',
