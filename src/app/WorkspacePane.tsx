@@ -5,8 +5,8 @@ import {WorkspacePaneBody} from './WorkspacePaneBody';
 import {theme} from './theme';
 
 const workspacePaneStyles = css({
-  width: '100vw',
-  height: '100vh',
+  height: `calc(100vh - ${theme.statusbar.height})`,
+  width: `calc(100vw - ${theme.sideNavbar.width})`,
   boxSizing: 'border-box',
   overflow: 'hidden',
   margin: 0,
