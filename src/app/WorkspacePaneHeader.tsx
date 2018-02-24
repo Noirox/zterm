@@ -1,7 +1,7 @@
-import {css} from 'glamor';
-import * as React from 'react';
-import {WorkspacePaneHeaderTab} from './WorkspacePaneHeaderTab';
-import {theme} from './theme';
+import { css } from 'glamor'
+import * as React from 'react'
+import { WorkspacePaneHeaderTab } from './WorkspacePaneHeaderTab'
+import { theme } from './theme'
 
 const workspacePaneHeaderStyles = css({
   listStyle: 'none',
@@ -14,8 +14,8 @@ const workspacePaneHeaderStyles = css({
   top: 0,
   //margin: `0 ${theme.sideNavbar.width}`
   margin: 0,
-  borderBottom: '1px solid black'
-});
+  borderBottom: '1px solid black',
+})
 
 const workspacePaneHeaderControlStyles = css({
   position: 'absolute',
@@ -25,12 +25,17 @@ const workspacePaneHeaderControlStyles = css({
   display: 'flex',
   WebkitBoxAlign: 'center',
   alignItems: 'center',
+
   zIndex: 2000,
-  color: '#727781',
-  '>i': {
-    marginLeft: '10px'
-  }
-});
+  '>.pt-button': {
+    color: '#727781',
+    marginLeft: 0,
+  },
+  '>.pt-button:hover': {
+    transition: theme.transitionTime,
+    color: 'whitesmoke',
+  },
+})
 
 export const WorkspacePaneHeader = () => {
   return (
@@ -40,9 +45,9 @@ export const WorkspacePaneHeader = () => {
         <WorkspacePaneHeaderTab active={false} title='Sux.js' />
       </ul>
       <div className={`${workspacePaneHeaderControlStyles}`}>
-        <i className='fas fa-ellipsis-h' />
-        <i className='fas fa-columns' />
+        <button type='button' className='pt-button pt-minimal fas fa-ellipsis-h' />
+        <button type='button' className='pt-button pt-minimal fas fa-columns' />
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,7 +1,7 @@
-
-export const zIndexBase = 999;
+export const zIndexBase = 999
 
 export const theme = {
+  transitionTime: '.666s',
   backgroundColor: '#2B303B',
   bodyFontFamily: `'Raleway', sans-serif`,
   barSeparator: '1px solid black',
@@ -9,7 +9,7 @@ export const theme = {
     width: '50px',
     backgroundColor: '#21252D',
     color: '#727781',
-    zIndex: zIndexBase
+    zIndex: zIndexBase,
   },
   statusbar: {
     backgroundColor: '#21252D',
@@ -19,7 +19,7 @@ export const theme = {
   workspace: {
     backgroundColor: '#21252D',
     header: {
-      height: '50px'
-    }
+      height: '50px',
+    },
   },
-};
+}
