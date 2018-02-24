@@ -1,7 +1,9 @@
 import {css} from 'glamor';
 import * as React from 'react';
-import {WorkspacePaneHeaderTab} from './WorkspacePaneHeaderTab';
+import {activeTab, WorkspacePaneHeaderTab} from './WorkspacePaneHeaderTab';
 import {theme} from './theme';
+import {ITabModel, workspaceState} from './WorkspaceModel';
+import {observer} from 'mobx-react';
 
 const workspacePaneHeaderStyles = css({
   listStyle: 'none',
@@ -38,12 +40,29 @@ const workspacePaneHeaderControlStyles = css({
   },
 });
 
-export const WorkspacePaneHeader = () => {
+export const WorkspacePaneHeader = observer((props) => {
   return (
     <div style={{backgroundColor: theme.backgroundColorBase}}>
       <ul className={`${workspacePaneHeaderStyles}`}>
-        <WorkspacePaneHeaderTab active={true} title='App.js' />
-        <WorkspacePaneHeaderTab active={false} title='Sux.js' />
+        {props.tabs.map((tab: ITabModel) =>
+          <WorkspacePaneHeaderTab
+            key={tab.id}
+            tab={tab}
+            active={tab.id === workspaceState.panes[0].active.id ? activeTab : null}
+            onActivate={(e: React.SyntheticEvent<any>) => {
+              e.preventDefault();
+              e.stopPropagation();
+              workspaceState.panes[0].setActiveTab(tab);
+              return false;
+            }}
+            onClose={(e: React.SyntheticEvent<any>) => {
+              e.preventDefault();
+              e.stopPropagation();
+              workspaceState.panes[0].removeTab(tab);
+              return false;
+            }}
+          />
+        )}
       </ul>
       <div className={`${workspacePaneHeaderControlStyles}`}>
         <button type='button' className='pt-button pt-minimal fas fa-ellipsis-h' />
@@ -51,4 +70,4 @@ export const WorkspacePaneHeader = () => {
       </div>
     </div>
   );
-};
+});

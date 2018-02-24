@@ -1,6 +1,7 @@
 import {css} from 'glamor';
 import * as React from 'react';
 import {theme} from './theme';
+import {workspaceState} from './WorkspaceModel';
 
 const SideNavbarStyles = css({
   listStyle: 'none',
@@ -44,7 +45,12 @@ export const SideNavbar = () => {
       <li className='fas fa-code-branch' />
       <li className='fas fa-bug' />
       <li className='fas fa-external-link-square-alt' />
-      <li className='fas fa-cog setting' />
+      <li className='fas fa-cog setting' onClick={() => {
+        const tab = {title: 'Settings', id: 'settings', content: <div>fuc</div>};
+        workspaceState.panes[0].addTab(tab);
+        workspaceState.panes[0].setActiveTab(tab);
+      }}
+      />
     </ol>
   );
 };

@@ -1,6 +1,8 @@
 import {css} from 'glamor';
 import {theme} from './theme';
 import * as React from 'react';
+import {WorkspacePane} from './WorkspacePane';
+import {workspaceState} from './WorkspaceModel';
 
 const workspaceStyles = css({
   width: '100vw',
@@ -11,10 +13,15 @@ const workspaceStyles = css({
   backgroundColor: theme.workspace.backgroundColor,
   color: theme.textColorActive,
 });
-export const Workspace = (props: any) => {
+
+export const Workspace = () => {
   return (
     <div className={`${workspaceStyles}`}>
-      {props.children}
+      {workspaceState.panes.map(pane =>
+        <WorkspacePane tabs={pane.tabs} key={'1'} activeTab={workspaceState.panes[0].activeTab}/>)
+      }
     </div>
   );
 };
+
+
