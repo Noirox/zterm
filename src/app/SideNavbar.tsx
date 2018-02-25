@@ -41,6 +41,9 @@ const SideNavbarStyles = css({
     transition: theme.transitionTime,
     paddingBottom: '15px',
     paddingTop: '15px',
+    borderTop: `1px solid ${theme.sideNavbar.backgroundColor}`,
+    borderBottom: `1px solid ${theme.sideNavbar.backgroundColor}`,
+    borderLeft: `3px solid ${theme.sideNavbar.backgroundColor}`,
     ':hover': {
       color: theme.textColorActive,
     },
