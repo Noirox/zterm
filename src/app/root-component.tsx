@@ -1,6 +1,5 @@
 // This is the top-most component in the app.
 import * as React from 'react';
-import './main.css';
 import * as Mousetrap from 'mousetrap';
 import {cssProps} from '../views/theme';
 import {css} from 'glamor';
