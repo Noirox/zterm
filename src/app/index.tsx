@@ -45,8 +45,28 @@ css.global('div#root', {
   WebkitUserSelect: 'none',
 });
 
+css.global('::-webkit-scrollbar', {
+  width: '10px'
+});
+
+css.global('::-webkit-scrollbar-track', {
+  WebkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.3)'
+});
+
+css.global('::-webkit-scrollbar-thumb', {
+  WebkitBoxShadow: 'inset 0 0 6px rgba(198,198,198, .3)',
+  backgroundColor: '#394b59'
+});
+
 css.global('.terminal', {
   backgroundColor: theme.backgroundColor
+});
+
+css.global('tr, td', {
+  lineHeight: '47px',
+  maxHeight: '47px',
+  height: '47px',
+  minHeight: '47px',
 });
 
 /**
