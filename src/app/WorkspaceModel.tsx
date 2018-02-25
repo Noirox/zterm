@@ -37,12 +37,15 @@ export class PaneModel {
     const idx = this.tabs.indexOf(tab);
     this.tabs.splice(idx, 1);
     tab.content = null;
+    if(this.active.id === tab.id) {
+      this.active = undefined;
+    }
 
     if (tab.id.startsWith('yate-tabs')) {
       this.tabCounter--;
     }
 
-    if (this.tabs.length > 0 && tab.id === this.active.id) {
+    if (this.tabs.length > 0 /*&& tab.id === this.active.id*/) {
       if (idx < this.tabs.length) {
         this.setActiveTab(this.tabs[idx]);
       } else {

@@ -61,7 +61,7 @@ export const SideNavbar = observer(() => {
       <li className='fas fa-bug' />
       <li className='fas fa-external-link-square-alt' />
       <li className='setting'
-          style={workspaceState.panes[0].active.id === 'settings' ? {
+          style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'settings' ? {
             color: theme.textColorActive,
             backgroundColor: theme.backgroundColor,
             borderTop: theme.spacer,
@@ -72,7 +72,7 @@ export const SideNavbar = observer(() => {
             workspaceState.panes[0].addTab(tab);
             workspaceState.panes[0].setActiveTab(tab);
           }}>
-        <i className='fas fa-cog' style={workspaceState.panes[0].active.id === 'settings' ? {
+        <i className='fas fa-cog' style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'settings' ? {
           animation: `${spinAnim} 3.5s linear infinite`,
           animationPlayState: 'running'
         } : {
