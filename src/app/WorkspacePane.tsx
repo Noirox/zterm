@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {css} from 'glamor';
-import {WorkspacePaneHeader} from './WorkspacePaneHeader';
 import {WorkspacePaneBody} from './WorkspacePaneBody';
 import {theme} from './theme';
 import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
+import {WorkspacePaneHeader} from './WorkspacePaneHeader';
 
 
 const workspacePaneStyles = css({
@@ -22,7 +22,7 @@ export const WorkspacePane = observer((props: IWorkspacePaneProps) => {
     <div className={`${workspacePaneStyles}`}>
       <WorkspacePaneHeader tabs={props.tabs} />
       {workspaceState.panes[0].active && workspaceState.panes[0].active.content &&
-        <WorkspacePaneBody panel={workspaceState.panes[0].active.content} />
+      <WorkspacePaneBody panel={workspaceState.panes[0].active.content} />
       }
     </div>
   );

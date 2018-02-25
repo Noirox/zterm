@@ -4,7 +4,7 @@ import {theme} from './theme';
 import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
 import {SettingsTab} from './Settings';
-import {Yate3270} from './yate3270';
+import {TerminalTab} from './yate3270';
 
 const spinAnim = keyframes({
   '0%': {
@@ -63,7 +63,7 @@ export const SideNavbar = observer(() => {
       <li
         className='fas fa-terminal'
         onClick={() => {
-          workspaceState.panes[0].addTab({id: 'terminal', title: 'Terminal', content: <Yate3270 />});
+          workspaceState.panes[0].addTab(TerminalTab);
         }}
         style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'terminal' ? {
           color: theme.textColorActive,

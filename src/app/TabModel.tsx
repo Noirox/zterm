@@ -20,5 +20,5 @@ export const undefinedTab = new TabModel();
 export interface ITabModel {
   id: string | undefined;
   title: string | undefined;
-  content: JSX.Element | undefined;
+  content: JSX.Element | undefined | any;
 }

@@ -20,43 +20,43 @@ export class SettingsKeybindings extends React.Component {
           </thead>
           <tbody>
           <tr>
-            <td><KeyCombo combo="meta + 1" /></td>
+            <td><KeyCombo combo="ctrl + 1" /></td>
             <td>Switch to tab 1</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 2" /></td>
+            <td><KeyCombo combo="ctrl + 2" /></td>
             <td>Switch to tab 2</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 3" /></td>
+            <td><KeyCombo combo="ctrl + 3" /></td>
             <td>Switch to tab 3</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 4" /></td>
+            <td><KeyCombo combo="ctrl + 4" /></td>
             <td>Switch to tab 4</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 5" /></td>
+            <td><KeyCombo combo="ctrl + 5" /></td>
             <td>Switch to tab 5</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 6" /></td>
+            <td><KeyCombo combo="ctrl + 6" /></td>
             <td>Switch to tab 6</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 7" /></td>
+            <td><KeyCombo combo="ctrl + 7" /></td>
             <td>Switch to tab 7</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 8" /></td>
+            <td><KeyCombo combo="ctrl + 8" /></td>
             <td>Switch to tab 8</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 9" /></td>
+            <td><KeyCombo combo="ctrl + 9" /></td>
             <td>Switch to tab 9</td>
           </tr>
           <tr>
-            <td><KeyCombo combo="meta + 0" /></td>
+            <td><KeyCombo combo="ctrl + 0" /></td>
             <td>Switch to the last tab</td>
           </tr>
           </tbody>

@@ -9,6 +9,7 @@ import {SideNavbar} from './SideNavbar';
 import {Statusbar} from './Statusbar';
 import {Workspace} from './Workspace';
 import {SidePane} from './sidepane';
+import 'mousetrap/plugins/global-bind/mousetrap-global-bind';
 
 const OVERLAY = css({
   position: 'fixed',
@@ -51,7 +52,7 @@ export class RootComponent extends React.Component<{}, {}> {
   constructor(props: any) {
     super(props);
     Mousetrap.reset();
-    Mousetrap.bind('f4', this.toggle.bind(this), 'keydown');
+    Mousetrap.bindGlobal('f4', this.toggle.bind(this), 'keydown');
   }
 
   render() {

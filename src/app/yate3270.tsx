@@ -2,6 +2,7 @@ import * as React from 'react';
 import {ReactInstance} from 'react';
 import {Terminal} from 'xterm';
 import * as fit from 'xterm/lib/addons/fit/fit';
+import {TabModel} from './TabModel';
 
 interface IYate3270Refs {
   [key: string]: ReactInstance
@@ -70,3 +71,4 @@ export class Yate3270 extends React.Component<{}, {}> {
     return <div ref='termContainer' style={{backgroundColor: '#21252D'}} />;
   }
 }
+export const TerminalTab = new TabModel({id: 'terminal', title: 'Terminal', content: <Yate3270 />});
