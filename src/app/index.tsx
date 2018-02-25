@@ -10,6 +10,7 @@ import {css} from 'glamor';
  * CSS reset
  */
 import 'glamor/reset';
+import {theme} from './theme';
 
 /**
  * Electron-focused CSS resets
@@ -43,6 +44,9 @@ css.global('div#root', {
   WebkitUserSelect: 'none',
 });
 
+css.global('.terminal', {
+  backgroundColor: theme.backgroundColor
+});
 
 /**
  * Zooming resets

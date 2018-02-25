@@ -17,7 +17,12 @@ export class Yate3270 extends React.Component<{}, {}> {
   componentDidMount() {
     Terminal.applyAddon(fit);
 
-    this.xterm = new Terminal();
+    this.xterm = new Terminal({
+      theme: {
+        background: '#2B303B',
+        foreground: '#5c6370'
+      }
+    });
     this.xterm.attachCustomKeyEventHandler(this.keyboardHandler);
     this.xterm.open(this.refs.termContainer);
     this.xterm.on('key', (key, ev) => {
@@ -44,7 +49,7 @@ export class Yate3270 extends React.Component<{}, {}> {
     this.xterm.writeln('');
     this.xterm.writeln('');
     this.xterm.writeln('F1=Help      F2=Split     F3=Exit      F5=Rfind     F6=Rchange   F7=Up');
-    this.xterm.writeln('F8=Down      F9=Swap     F10=Left     F11=Right    F12=Cancel');
+    this.xterm.writeln('F8=Down      F9=Swap      F10=Left     F11=Right    F12=Cancel');
     this.xterm.writeln('*DSLIST');
   }
 
@@ -62,6 +67,6 @@ export class Yate3270 extends React.Component<{}, {}> {
   }
 
   render() {
-    return <div ref='termContainer' />;
+    return <div ref='termContainer' style={{backgroundColor: '#21252D'}} />;
   }
 }

@@ -4,6 +4,7 @@ import {theme} from './theme';
 import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
 import {SettingsTab} from './Settings';
+import {Yate3270} from './yate3270';
 
 const spinAnim = keyframes({
   '0%': {
@@ -22,7 +23,7 @@ const SideNavbarStyles = css({
   width: theme.sideNavbar.width,
   padding: 0,
   margin: 0,
-  paddingTop: theme.workspace.header.height,
+  paddingTop: `calc(${theme.workspace.header.height} - 1px)`,
   zIndex: theme.sideNavbar.zIndex,
   position: 'absolute',
   left: 0,
@@ -32,13 +33,14 @@ const SideNavbarStyles = css({
   borderRight: theme.spacer,
   '>li': {
     color: theme.sideNavbar.color,
-    fontSize: '1.7rem',
+    fontSize: '1.1rem',
     width: theme.sideNavbar.width,
     zIndex: theme.sideNavbar.zIndex,
     cursor: 'pointer',
     textAlign: 'center',
     transition: theme.transitionTime,
-    marginBottom: '25px',
+    paddingBottom: '15px',
+    paddingTop: '15px',
     ':hover': {
       color: theme.textColorActive,
     },
@@ -52,10 +54,22 @@ const SideNavbarStyles = css({
   },
 });
 
-
 export const SideNavbar = observer(() => {
   return (
     <ol className={`${SideNavbarStyles}`}>
+      <li
+        className='fas fa-terminal'
+        onClick={() => {
+          workspaceState.panes[0].addTab({id: 'terminal', title: 'Terminal', content: <Yate3270 />});
+        }}
+        style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'terminal' ? {
+          color: theme.textColorActive,
+          backgroundColor: theme.backgroundColor,
+          borderTop: theme.spacer,
+          borderBottom: theme.spacer,
+          borderLeft: '3px solid black',
+        } : {}}
+      />
       <li className='fas fa-copy' />
       <li className='fas fa-search' />
       <li className='fas fa-code-branch' />
@@ -67,6 +81,7 @@ export const SideNavbar = observer(() => {
             backgroundColor: theme.backgroundColor,
             borderTop: theme.spacer,
             borderBottom: theme.spacer,
+            borderLeft: '3px solid black',
           } : {}}
           onClick={() => {
             workspaceState.panes[0].addTab(SettingsTab);
