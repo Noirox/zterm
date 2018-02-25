@@ -37,7 +37,8 @@ css.global('html, body, div#root', {
   backgroundColor: 'black'
 });
 
-css.global('.pt-tabs', {});
+css.global('.pt-tab-panel', {width: '100%'});
+css.global('.pt-tab-list', {marginTop: '25px'});
 
 css.global('div#root', {
   WebkitAppRegion: 'drag',
