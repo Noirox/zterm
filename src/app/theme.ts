@@ -27,6 +27,7 @@ export const theme = {
   workspace: {
     backgroundColor: bgColor,
     header: {
+      tabWidth: '240px',
       height: '40px',
       zIndex: zIndexBase + 1,
       activeTabBarColor: 'rgba(19, 124, 189, 1)', //'#568af2',

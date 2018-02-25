@@ -4,7 +4,7 @@ import {theme} from './theme';
 import {ITabModel} from './WorkspaceModel';
 
 const workspacePaneHeaderTabStyles = css({
-  width: '150px',
+  width: theme.workspace.header.tabWidth,
   height: theme.workspace.header.height,
   backgroundColor: theme.backgroundColorBase,
   display: 'flex',
@@ -32,7 +32,7 @@ const workspacePaneHeaderTabStyles = css({
   },
   '>span': {
     padding: '10px',
-    width: '105px',
+    width: `calc(${theme.workspace.header.tabWidth} - 45px)`,
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },

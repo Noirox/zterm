@@ -13,6 +13,23 @@ export class WorspaceStore {
   }
 }
 
+class TabModel implements ITabModel {
+  title: string;
+  id: string;
+  @observable
+  content: JSX.Element;
+
+  constructor(opts?: { title: string, id: string, content: JSX.Element }) {
+    if (opts) {
+      this.title = opts.title;
+      this.id = opts.id;
+      this.content = opts.content;
+    }
+  }
+}
+
+const undefinedTab = new TabModel();
+
 export class PaneModel {
   private tabCounter = 0;
 
@@ -20,7 +37,7 @@ export class PaneModel {
   tabs: ITabModel[] = [];
 
   @observable
-  active: ITabModel = undefined;
+  active: ITabModel = undefinedTab;
 
   @action
   setActiveTab = (tab: ITabModel) => {
@@ -37,15 +54,17 @@ export class PaneModel {
     const idx = this.tabs.indexOf(tab);
     this.tabs.splice(idx, 1);
     tab.content = null;
-    if(this.active.id === tab.id) {
-      this.active = undefined;
-    }
 
     if (tab.id.startsWith('yate-tabs')) {
       this.tabCounter--;
     }
 
-    if (this.tabs.length > 0 /*&& tab.id === this.active.id*/) {
+    if (this.tabs.length === 0) {
+      this.setActiveTab(undefinedTab);
+      return;
+    }
+
+    if (this.tabs.length > 0 && (this.active && tab.id === this.active.id)) {
       if (idx < this.tabs.length) {
         this.setActiveTab(this.tabs[idx]);
       } else {
@@ -79,20 +98,6 @@ export class PaneModel {
   }
 
   constructor() {
-    const t = new TabModel();
-    t.id = 'fuck';
-    t.title = 'fuck';
-    t.content = (<div>fuck0</div>)
-
-    this.tabs = [
-      t,
-      {
-        id: 'fuck1',
-        title: 'fuck',
-        content: (<div>fuck1</div>)
-      }
-    ];
-    this.setActiveTab(t);
   }
 }
 
@@ -103,18 +108,11 @@ export class SimpleBody extends React.Component {
   }
 }
 
-class TabModel implements ITabModel {
-  title: string;
-  id: string;
-  @observable
-  content: any;
-}
-
 
 export interface ITabModel {
-  id: string
-  title: string
-  content: any
+  id: string | undefined;
+  title: string | undefined;
+  content: JSX.Element | undefined;
 }
 
 
