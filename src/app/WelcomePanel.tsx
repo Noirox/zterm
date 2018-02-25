@@ -3,6 +3,7 @@ import * as React from 'react';
 import {yateIconStyles} from './WelcomePanel.styles';
 import {css} from 'glamor';
 import {Switch} from '@blueprintjs/core';
+import {TabModel} from './TabModel';
 
 const {shell} = require('electron');
 
@@ -74,3 +75,5 @@ export class WelcomePanel extends React.Component {
     );
   }
 }
+
+export const WelcomeTab = new TabModel({title: 'Welcome', id: 'welcome', content: <WelcomePanel />});

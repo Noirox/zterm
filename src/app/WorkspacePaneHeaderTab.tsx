@@ -1,7 +1,7 @@
 import {css} from 'glamor';
 import * as React from 'react';
 import {theme} from './theme';
-import {ITabModel} from './WorkspaceModel';
+import {ITabModel} from './TabModel';
 
 const workspacePaneHeaderTabStyles = css({
   width: theme.workspace.header.tabWidth,

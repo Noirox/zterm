@@ -2,8 +2,9 @@ import {css} from 'glamor';
 import * as React from 'react';
 import {activeTab, WorkspacePaneHeaderTab} from './WorkspacePaneHeaderTab';
 import {theme} from './theme';
-import {ITabModel, workspaceState} from './WorkspaceModel';
+import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
+import {ITabModel} from './TabModel';
 
 const workspacePaneHeaderStyles = css({
   listStyle: 'none',

@@ -1,8 +1,9 @@
 import {css, keyframes} from 'glamor';
 import * as React from 'react';
 import {theme} from './theme';
-import {SimpleBody, workspaceState} from './WorkspaceModel';
+import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
+import {SettingsTab} from './Settings';
 
 const spinAnim = keyframes({
   '0%': {
@@ -68,17 +69,17 @@ export const SideNavbar = observer(() => {
             borderBottom: theme.spacer,
           } : {}}
           onClick={() => {
-            const tab = {title: 'Settings', id: 'settings', content: <SimpleBody />};
-            workspaceState.panes[0].addTab(tab);
-            workspaceState.panes[0].setActiveTab(tab);
+            workspaceState.panes[0].addTab(SettingsTab);
           }}>
-        <i className='fas fa-cog' style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'settings' ? {
-          animation: `${spinAnim} 3.5s linear infinite`,
-          animationPlayState: 'running'
-        } : {
-          animation: `${spinAnim} 3.5s linear infinite`,
-          animationPlayState: 'paused',}
-        } />
+        <i className='fas fa-cog'
+           style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'settings' ? {
+             animation: `${spinAnim} 3.5s linear infinite`,
+             animationPlayState: 'running'
+           } : {
+             animation: `${spinAnim} 3.5s linear infinite`,
+             animationPlayState: 'paused',
+           }
+           } />
       </li>
     </ol>
   );

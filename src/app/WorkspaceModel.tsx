@@ -1,5 +1,7 @@
 import {action, computed, observable} from 'mobx';
 import * as React from 'react';
+import {WelcomeTab} from './WelcomePanel';
+import {ITabModel, undefinedTab} from './TabModel';
 
 export class WorspaceStore {
 
@@ -13,22 +15,6 @@ export class WorspaceStore {
   }
 }
 
-class TabModel implements ITabModel {
-  title: string;
-  id: string;
-  @observable
-  content: JSX.Element;
-
-  constructor(opts?: { title: string, id: string, content: JSX.Element }) {
-    if (opts) {
-      this.title = opts.title;
-      this.id = opts.id;
-      this.content = opts.content;
-    }
-  }
-}
-
-const undefinedTab = new TabModel();
 
 export class PaneModel {
   private tabCounter = 0;
@@ -53,7 +39,6 @@ export class PaneModel {
   removeTab = (tab: ITabModel) => {
     const idx = this.tabs.indexOf(tab);
     this.tabs.splice(idx, 1);
-    tab.content = null;
 
     if (tab.id.startsWith('yate-tabs')) {
       this.tabCounter--;
@@ -83,6 +68,7 @@ export class PaneModel {
       this.setActiveTab(this.findById(tab.id));
     } else {
       this.tabs.push(tab);
+      this.setActiveTab(tab);
     }
   };
 
@@ -98,6 +84,8 @@ export class PaneModel {
   }
 
   constructor() {
+    this.addTab(WelcomeTab);
+
   }
 }
 
@@ -106,13 +94,6 @@ export class SimpleBody extends React.Component {
   render() {
     return (<div>fuuuck simple</div>);
   }
-}
-
-
-export interface ITabModel {
-  id: string | undefined;
-  title: string | undefined;
-  content: JSX.Element | undefined;
 }
 
 
