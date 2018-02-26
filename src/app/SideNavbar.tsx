@@ -5,17 +5,17 @@ import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
 import {SettingsTab} from './Settings';
 import {TerminalTab} from './yate3270';
-import {JobsviewTab} from './Jobsview'
+import {JobsviewTab} from './Jobsview';
 
 const spinAnim = keyframes({
   '0%': {
     WebkitTransform: 'rotate(0)',
-    transform: 'rotate(0)'
+    transform: 'rotate(0)',
   },
   '100%': {
     WebkitTransform: 'rotate(359deg)',
     transform: 'rotate(359deg)',
-  }
+  },
 });
 
 const SideNavbarStyles = css({
@@ -29,7 +29,7 @@ const SideNavbarStyles = css({
   position: 'absolute',
   left: 0,
   top: 0,
-  minHeight: '400px',
+  minHeight: '420px',
   backgroundColor: theme.sideNavbar.backgroundColor,
   borderRight: theme.spacer,
   '>li': {
@@ -53,7 +53,7 @@ const SideNavbarStyles = css({
     position: 'absolute',
     bottom: '40px',
     left: 0,
-    padding: '10px'
+    padding: '10px',
     //animation: `${spinAnim} 10.5s linear infinite`
   },
 });
@@ -79,7 +79,7 @@ export const SideNavbar = observer(() => {
       <li
         className='fas fa-code-branch'
         onClick={() => {
-          workspaceState.panes[0].addTab(JobsviewTab)
+          workspaceState.panes[0].addTab(JobsviewTab);
         }}
         style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'jobsview' ? {
           color: theme.textColorActive,
@@ -105,7 +105,7 @@ export const SideNavbar = observer(() => {
         <i className='fas fa-cog'
            style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'settings' ? {
              animation: `${spinAnim} 3.5s linear infinite`,
-             animationPlayState: 'running'
+             animationPlayState: 'running',
            } : {
              animation: `${spinAnim} 3.5s linear infinite`,
              animationPlayState: 'paused',

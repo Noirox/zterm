@@ -16,7 +16,7 @@ const workspacePaneBodyStyles = css({
 export const WorkspacePaneBody = (props: { panel: JSX.Element }) => {
   const {panel} = props;
   return (
-    <div className={`${workspacePaneBodyStyles}`}>
+    <div className={`${workspacePaneBodyStyles} pt-dark`}>
       {panel}
     </div>
   );
