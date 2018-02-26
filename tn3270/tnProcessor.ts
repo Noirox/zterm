@@ -58,11 +58,7 @@ export class TelnetProcessor {
 
   static byteToStr = (byte: number) => {
     const cmdStr = TelnetProcessor.tnCmdStr[byte];
-    if(!cmdStr) {
-      return `[${byte},${byte.toString(16).toUpperCase()}]`;
-    } else {
-      return cmdStr;
-    }
+    return cmdStr ? cmdStr : `[${byte},${byte.toString(16).toUpperCase()}]`;
   }
 
   function;

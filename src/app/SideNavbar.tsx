@@ -5,6 +5,7 @@ import {workspaceState} from './WorkspaceModel';
 import {observer} from 'mobx-react';
 import {SettingsTab} from './Settings';
 import {TerminalTab} from './yate3270';
+import {JobsviewTab} from './Jobsview'
 
 const spinAnim = keyframes({
   '0%': {
@@ -75,7 +76,19 @@ export const SideNavbar = observer(() => {
       />
       <li className='fas fa-copy' />
       <li className='fas fa-search' />
-      <li className='fas fa-code-branch' />
+      <li
+        className='fas fa-code-branch'
+        onClick={() => {
+          workspaceState.panes[0].addTab(JobsviewTab)
+        }}
+        style={workspaceState.panes[0].active && workspaceState.panes[0].active.id === 'jobsview' ? {
+          color: theme.textColorActive,
+          backgroundColor: theme.backgroundColor,
+          borderTop: theme.spacer,
+          borderBottom: theme.spacer,
+          borderLeft: '3px solid black',
+        } : {}}
+      />
       <li className='fas fa-bug' />
       <li className='fas fa-external-link-square-alt' />
       <li className='setting'
