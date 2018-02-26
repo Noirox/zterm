@@ -77,7 +77,7 @@ export const SideNavbar = observer(() => {
       <li className='fas fa-copy' />
       <li className='fas fa-search' />
       <li
-        className='fas fa-code-branch'
+        className='fas fa-edit'
         onClick={() => {
           workspaceState.panes[0].addTab(JobsviewTab);
         }}
