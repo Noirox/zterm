@@ -56,7 +56,15 @@ export class TelnetProcessor {
     SB_TN3270E: 0x28
   };
 
-  static byteToStr = (byte: number) => TelnetProcessor.tnCmdStr[byte];
+  static byteToStr = (byte: number) => {
+    const cmdStr = TelnetProcessor.tnCmdStr[byte];
+    if(!cmdStr) {
+      return `[${byte},${byte.toString(16).toUpperCase()}]`;
+    } else {
+      return cmdStr;
+    }
+  }
+
   function;
   private data = [16500];
   private dataPtr;

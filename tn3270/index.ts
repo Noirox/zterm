@@ -7,15 +7,6 @@ import Bluebird = require('bluebird');
 
 const debug = require('debug')('client');
 
-const client = new net.Socket();
-const connection = client.connect(623, '127.0.0.1');
-
-connection.on('data',
-  (byteBuffer: Buffer) => {
-    console.log(byteBuffer.values());
-  }
-);
-
 export interface IClientOpts {
   host: string
   port: number
@@ -24,8 +15,8 @@ export interface IClientOpts {
 }
 
 const DEFAULT_OPTS: IClientOpts = {
-  host: '127.0.0.1',
-  port: 623,
+  host: 'ca31',
+  port: 923,
   timeout: 5000,
   debug: true,
 };
