@@ -13,6 +13,9 @@
   },
   "homepage": "https://github.com/Noirox/zterm",
   "build": {
+    "directories": {
+      "app": "./"
+    },
     "appId": "com.noirox.zterm",
     "files": [
       "!src",
@@ -171,9 +174,5 @@
   },
   "bugs": {
     "url": "https://github.com/Noirox/zterm/issues"
-  },
-  "directories": {
-    "doc": "docs",
-    "test": "test"
   }
 }

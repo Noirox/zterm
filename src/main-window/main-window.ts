@@ -41,6 +41,8 @@ export function createMainWindow(appPath: string, showDelay: number = 100) {
     title: app.getName(),
     frame: isWindows(),
     webPreferences: {
+      allowRunningInsecureContent: true,
+      webSecurity: false,
       backgroundThrottling: false,
       textAreasAreResizable: false,
     },

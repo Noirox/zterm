@@ -3,7 +3,7 @@
   "rules": {
     "ordered-imports": [false],
     "quotemark": [true, "single", "jsx-single", "avoid-escape"],
-    "semicolon": [true, "always"],
+    "semicolon": [false, "always"],
     "member-access": [false],
     "member-ordering": [false],
     "trailing-comma": [true, { "singleline": "never", "multiline": "always" }],

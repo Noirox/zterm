@@ -62,12 +62,12 @@ css.global('.terminal', {
   backgroundColor: theme.backgroundColor
 });
 
-css.global('tr, td', {
-  lineHeight: '47px',
-  maxHeight: '47px',
-  height: '47px',
-  minHeight: '47px',
-});
+// css.global('tr, td', {
+//   lineHeight: '47px',
+//   maxHeight: '47px',
+//   height: '47px',
+//   minHeight: '47px',
+// });
 
 /**
  * Zooming resets
