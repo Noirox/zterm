@@ -32,13 +32,13 @@ export const JOB_FILES_MOCK_RESPONSE = {
 export const JOB_CONTENT_MOCK = {
   json: () => {
     return JSON.parse(`        
-        1 //EBAEAPI  JOB (113400000),'Jonas Dusil',CLASS=A,MSGCLASS=X,            STC45558
+        1 //EBAEAPI  JOB (113400000),'ZZZZZ ZZZZZ',CLASS=A,MSGCLASS=X,            STC11111
           // REGION=1000M,MSGLEVEL=(1,1)
-        2 /*JOBPARM SYSAFF=CA31
+        2 /*JOBPARM SYSAFF=XXXX
           //*------------------------------------------------------------------*
-          //*  CONTACT INFO:    JONAS DUSIL         PH:+420-226-207-778  DUSJO01
-          //*  ALTERNATE:       MARTIN SMIDL        PH:+420-226-207-749  SMIMA27
-          //*  ALTERNATE:       AGATA POKORNA       PH:+420-226-207-631  POKAG01
+          //*  CONTACT INFO:    XXXXX XXXXX         PH:+QQ0-QQ6-AQ7-ZZQ  1111111
+          //*  ALTERNATE:       XxXXXX XXXXX        PH:+QQ0-QQ6-AQ7-ZFA  1111!!1
+          //*  ALTERNATE:       XXXXX XOXOX0X       PH:+QQ0-QQ6-AQ7-ZAQ  1111111
           //*  DESCRIPTION:     CA WORKLOAD AUTOMATION EE                      *
           //*  CO-REQ:          TCP/IP,USS                                     *
           //*  ESTIMATED CPU:   60 MINUTES                                     *
@@ -52,13 +52,13 @@ export const JOB_CONTENT_MOCK = {
           //*  LAST UPDATED:    24 November 2017                               *
           //*------------------------------------------------------------------*
         3 //DELARCH EXEC PGM=BPXBATCH,
-          //* PARM='SH /a/dusjo01/ESP/rest/run.sh'
-          // PARM='SH /a/dusjo01/ESP/rest/deleteArchive.sh'
+          //* PARM='SH /a/XXXXXXX/ESP/rest/run.sh'
+          // PARM='SH /a/XXXXXXX/ESP/rest/deleteArchive.sh'
         4 //STDOUT   DD  SYSOUT=*
         5 //STDERR   DD  SYSOUT=*
         6 //RUNAPI   EXEC PGM=JVMLDM86,REGION=0M,
           // PARM='/+I org.springframework.boot.loader.JarLauncher start'
-        7 //STEPLIB  DD DISP=SHR,DSN=APC.MOTM.ESP114.J2ZTEST.D1.LOADLIB
+        7 //STEPLIB  DD DISP=SHR,DSN=APC.XXXX.XXXXXX.TTTTTTT.D3.LOADLIB
         8 //STDENV   DD DATA,DLM=@@
         9 //SYSPRINT DD SYSOUT=*,DCB=LRECL=1333     < System stdout
        10 //SYSOUT   DD SYSOUT=*,DCB=LRECL=1333     < System stderr

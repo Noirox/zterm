@@ -4,6 +4,7 @@ import {css} from 'glamor';
 import {Card, Classes, CollapsibleList, EditableText, Icon, Intent, MenuItem, Spinner} from '@blueprintjs/core';
 import AceEditor from 'react-ace';
 import {theme} from './theme';
+import {JOB_MOCK_RESPONSE, mockRequest} from '../lib/platform';
 
 const JobStyle = css({
   margin: '0px',
@@ -44,8 +45,8 @@ export class Jobsview extends React.Component {
 
   getJobs = () => {
     this.setState({selectedJob: undefined, loadingFiles: true});
-    fetch(`${jobsUrl}?prefix=${this.state.prefix || '*'}&owner=${this.state.owner || '*'}`)
-    //mockRequest(JOB_MOCK_RESPONSE, 1000)
+    //fetch(`${jobsUrl}?prefix=${this.state.prefix || '*'}&owner=${this.state.owner || '*'}`)
+    mockRequest(JOB_MOCK_RESPONSE, 1000)
       .then((res) => res.json())
       .then(jobs => jobs.map(job => ({id: job.jobid, name: job.jobname, status: job.status, files: job['files-url']})))
       .then(jobs => this.setState({jobs, loadingFiles: false}));
