@@ -5,6 +5,7 @@ import {Card, Classes, CollapsibleList, EditableText, Icon, Intent, MenuItem, Sp
 import AceEditor from 'react-ace';
 import {theme} from './theme';
 import {JOB_MOCK_RESPONSE, mockRequest} from '../lib/platform';
+import {JES3Jobs} from './jes3jobs';
 
 const JobStyle = css({
   margin: '0px',
@@ -68,18 +69,20 @@ export class Jobsview extends React.Component {
         <nav className='pt-navbar' style={{width: '100%', marginBottom: '20px'}}>
           <div className='pt-navbar-group pt-align-left'>
             <div className='pt-navbar-heading'>prefix=</div>
-            <EditableText onConfirm={(value) => this.setState({prefix: value})} placeholder='ebae*'/>
+            <EditableText onConfirm={(value) => this.setState({prefix: value})} placeholder='ebae*' />
           </div>
           <div className='pt-navbar-group pt-align-left'>
             <div className='pt-navbar-heading'>owner=</div>
-            <EditableText onConfirm={(value) => this.setState({owner: value})} placeholder='*'/>
-            <span className='pt-navbar-divider'/>
-            <button onClick={this.getJobs} className='pt-button pt-minimal pt-icon-circle-arrow-right'/>
+            <EditableText onConfirm={(value) => this.setState({owner: value})} placeholder='*' />
+            <span className='pt-navbar-divider' />
+            <button onClick={this.getJobs} className='pt-button pt-minimal pt-icon-circle-arrow-right' />
           </div>
         </nav>
         <div style={{height: 'calc(100vh - 155px)', width: '100%'}}>
+          <JES3Jobs />
+
           {this.state.loadingFiles &&
-          <Spinner className={Classes.SMALL} intent={Intent.PRIMARY}/>}
+          <Spinner className={Classes.SMALL} intent={Intent.PRIMARY} />}
           {!this.state.selectedJob &&
           this.state.jobs.map(job =>
             (<Card
@@ -158,7 +161,7 @@ class FileList extends React.Component <IFileListProps, any> {
           />
           }
           <button className='pt-button pt-minimal pt-icon-refresh'
-                  onClick={() => this.props.onChangeJob(this.props.selectedJob)}/>
+                  onClick={() => this.props.onChangeJob(this.props.selectedJob)} />
           <button
             className='pt-button pt-minimal pt-icon-arrow-left'
             style={{float: 'right'}}
@@ -171,14 +174,14 @@ class FileList extends React.Component <IFileListProps, any> {
             className={`pt-elevation-1 pt-interactive ${JobStyle}`}
             onClick={() => this.fetchContent(file)}
           >
-            <h6><Icon icon='document' style={{marginRight: '7px'}}/>{file.name}</h6>
+            <h6><Icon icon='document' style={{marginRight: '7px'}} />{file.name}</h6>
             <p>lines: {file.lines}</p>
           </Card>,
         )}
         {this.state.loading && !this.state.content &&
-        <Spinner className={Classes.SMALL} intent={Intent.PRIMARY}/>}
+        <Spinner className={Classes.SMALL} intent={Intent.PRIMARY} />}
         {this.state.content &&
-        <FileContent content={this.state.content}/>
+        <FileContent content={this.state.content} />
         }
       </React.Fragment>
     );
@@ -191,18 +194,18 @@ const BreadcrumbsOfJobs = ({selectedJob, jobs, changeJob}) => {
   return (
     <CollapsibleList
       className={Classes.BREADCRUMBS}
-      dropdownTarget={<span className={Classes.BREADCRUMBS_COLLAPSED}/>}
+      dropdownTarget={<span className={Classes.BREADCRUMBS_COLLAPSED} />}
       visibleItemRenderer={VisibleItem}
       visibleItemCount={1}
     >
       {jobs.filter(job => job.id !== selectedJob.id).map(job =>
-        <MenuItem icon='folder-close' onClick={() => changeJob(job)} key={job.id} text={job.name} href='#'/>,
+        <MenuItem icon='folder-close' onClick={() => changeJob(job)} key={job.id} text={job.name} href='#' />,
       )}
-      <MenuItem icon='folder-close' text={selectedJob.name} href='#'/>
+      <MenuItem icon='folder-close' text={selectedJob.name} href='#' />
     </CollapsibleList>);
 };
 
-const FileContent = ({content}: {content: string}) => {
+const FileContent = ({content}: { content: string }) => {
   return (
     <div>
       <AceEditor
@@ -221,4 +224,4 @@ const FileContent = ({content}: {content: string}) => {
 const VisibleItem = ({text}) =>
   <span className={`${Classes.BREADCRUMB}, ${Classes.BREADCRUMB_CURRENT}`}>{text}</span>;
 
-export const JobsviewTab = new TabModel({title: 'Jobs view', id: 'jobsview', content: <Jobsview/>});
+export const JobsviewTab = new TabModel({title: 'Jobs view', id: 'jobsview', content: <Jobsview />});
